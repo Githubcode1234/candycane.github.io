@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candy Cane Shop</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Fallback font */
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* White background */
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #b71c1c; /* Dark red header */
+            color: #fff;
+        }
+
+        main {
+            margin: 20px;
+            padding: 20px;
+            background-color: #ffffff; /* White main background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        form {
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: opacity 0.5s ease;
+            background-color: #1565c0; /* Blue form background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px; /* Adjust the height as needed */
+            border: none;
+        }
+
+        button {
+            position: relative;
+            background-color: #b71c1c; /* Dark red button */
+            color: #000; /* Black text color */
+            font-weight: bold; /* Bold text */
+            font-size: 24px; /* Updated font size */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto;
+            overflow: hidden;
+            font-family: 'Permanent Marker', cursive; /* Updated font family */
+        }
+
+        button::before,
+        button::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #fff,
+                #fff 10px,
+                #b71c1c 10px,
+                #b71c1c 20px
+            );
+            z-index: 1;
+        }
+
+        button::after {
+            top: 0;
+            left: 0;
+            transform: scaleY(-1);
+        }
+
+        button span {
+            position: relative;
+            z-index: 2;
+        }
+
+        button:hover {
+            background-color: #871717; /* Even darker red on hover */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #1565c0; /* Blue footer */
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to the Candy Cane Shop!</h1>
+    </header>
+
+    <main>
+        <p>Delicious candy canes for only 25 cents each! These candy canes are half the price of the school's 50 cent candy canes.</p>
+
+        <form id="purchaseForm" action="purchase.php" method="post" class="hidden">
+            <!-- Embedded Google Form -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScW5NIEghwrwpWSyQ6VJzuVEMDIJHTRiRvEjfhx-aKaem80sA/viewform?embedded=true"></iframe>
+        </form>
+
+        <button id="buyNowButton" onclick="toggleForm()"><span>Buy Now</span></button>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Candy Cane Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Initially hide the form
+        var form = document.getElementById('purchaseForm');
+
+        function toggleForm() {
+            form.classList.toggle('hidden');
+            buyNowButton.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
